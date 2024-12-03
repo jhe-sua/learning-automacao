@@ -14,11 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+        <!--Seneium controla o navegador, vem com o WebDriver incluso-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.27.0</version>
         </dependency>
+        <!-- Cucumber e o que nos ajuda a realizar a documentacao de teste utilizando
+         Gherkin, vem incluso o Junit para realizar as verificações-->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -29,6 +32,11 @@
             <artifactId>cucumber-junit</artifactId>
             <version>7.20.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.rajatthareja</groupId>
+            <artifactId>reportbuilder</artifactId>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 
