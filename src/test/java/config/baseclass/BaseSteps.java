@@ -10,27 +10,27 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BaseSteps {
-    public static WebDriver driver;
+    public static WebDriver browser;
     public static Scenario scenario;
 
     public static void openBrownser() {
-        if (driver != null) return;
-        driver = BrowserFactory.getBrowser();
+        if (browser != null) return;
+        browser = BrowserFactory.getBrowser();
     }
 
     public static void closeBrownser() {
-        if (driver == null) return;
+        if (browser == null) return;
         try {
-            driver.quit();
-            driver.close();
+            browser.quit();
+            browser.close();
         } catch (Exception e) {}
-        driver = null;
+        browser = null;
     }
 
     public static void screenshot() {
         try {
             String dataHora = (new SimpleDateFormat("yyyy-MM-dd_-_HH-mm-ss-SSS")).format(new Date());
-            byte[] screenshot = ((TakesScreenshot) BaseSteps.driver).getScreenshotAs(OutputType.BYTES);
+            byte[] screenshot = ((TakesScreenshot) BaseSteps.browser).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", dataHora + "_screenshot.png");
         } catch (ClassCastException cce) {
             cce.printStackTrace();

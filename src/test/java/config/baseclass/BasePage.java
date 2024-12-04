@@ -14,7 +14,7 @@ public class BasePage {
     protected Actions actions;
 
     public BasePage() {
-        driver = config.baseclass.BaseSteps.driver;
+        driver = config.baseclass.BaseSteps.browser;
         actions = new Actions(driver);
     }
 
