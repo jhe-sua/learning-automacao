@@ -1,4 +1,4 @@
-package config.support;
+package steps;
 
 import config.baseclass.BaseSteps;
 import io.cucumber.java.*;

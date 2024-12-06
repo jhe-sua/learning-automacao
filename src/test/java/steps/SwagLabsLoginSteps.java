@@ -2,11 +2,14 @@ package steps;
 
 import config.baseclass.BaseSteps;
 import io.cucumber.java.pt.*;
+import org.junit.Assert;
 import pages.SwagLabsLoginPage;
+import pages.SwagLabsProductPage;
 
 public class SwagLabsLoginSteps extends BaseSteps
 {
     SwagLabsLoginPage login = new SwagLabsLoginPage();
+    SwagLabsProductPage pt = new SwagLabsProductPage();
 
     @Dado("que o usuario esta no site Swag Labs na pagina de login")
     public void queOUsuarioEstaNoSiteSwagLabsNaPaginaDeLogin()
@@ -29,11 +32,11 @@ public class SwagLabsLoginSteps extends BaseSteps
     @Quando("o usuario logar")
     public void o_usuario_logar() throws InterruptedException {
         login.clickBtLogin();
-        Thread.sleep(3000);
     }
 
     @Entao("a Pagina Swag Labs exibe a pagina de produtos")
     public void a_pagina_swag_labs_exibe_a_pagina_de_produtos()
     {
+        Assert.assertEquals("Products",pt.getTitleProduct());
     }
 }
