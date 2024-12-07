@@ -15,22 +15,25 @@ public class SwagLabsLoginSteps extends BaseSteps
     public void queOUsuarioEstaNoSiteSwagLabsNaPaginaDeLogin()
     {
         login.openURL();
+        screenshot();
     }
 
     @Quando("o usuario prencher username com {string}")
     public void o_usuario_prencher_username_com(String _user)
     {
         login.fillUsername(_user);
+        screenshot();
     }
 
     @Quando("o usuario preencher password com {string}")
     public void o_usuario_preencher_password_com(String _pass)
     {
         login.fillPassword(_pass);
+        screenshot();
     }
 
     @Quando("o usuario logar")
-    public void o_usuario_logar() throws InterruptedException {
+    public void o_usuario_logar() {
         login.clickBtLogin();
     }
 
@@ -38,5 +41,6 @@ public class SwagLabsLoginSteps extends BaseSteps
     public void a_pagina_swag_labs_exibe_a_pagina_de_produtos()
     {
         Assert.assertEquals("Products",pt.getTitleProduct());
+        screenshot();
     }
 }

@@ -1,12 +1,13 @@
 package steps;
 
+import config.baseclass.BaseSteps;
 import io.cucumber.java.pt.*;
 import org.junit.Assert;
 import pages.SwagLabsInventoryPage;
 import pages.SwagLabsLoginPage;
 import pages.SwagLabsProductPage;
 
-public class SwagLabsProductSteps
+public class SwagLabsProductSteps extends BaseSteps
 {
     SwagLabsLoginPage login = new SwagLabsLoginPage();
     SwagLabsProductPage home = new SwagLabsProductPage();
@@ -20,12 +21,13 @@ public class SwagLabsProductSteps
         login.fillUsername("standard_user");
         login.fillPassword("secret_sauce");
         login.clickBtLogin();
+        screenshot();
     }
     @Quando("o usuario acrescentar um item no carrinho")
     public void o_usuario_acrescentar_um_item_no_carrinho() {
         home.addCartRandomItem();
         randomName = home.getNameRandomItem();
-
+        screenshot();
     }
     @Quando("o usuario abrir a pagina do carrinho")
     public void o_usuario_abrir_a_pagina_do_carrinho() throws InterruptedException {
@@ -36,5 +38,6 @@ public class SwagLabsProductSteps
     public void o_sistema_exibira_os_itens_acrescentados_pelo_usuario() {
         String real = inv.getNameRandomItemAdded();
         Assert.assertEquals(randomName,real);
+        screenshot();
     }
 }
